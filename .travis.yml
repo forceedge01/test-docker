@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t forceedge01/docker-test:latest -f Dockerfile.dev .
+
+script:
+  - docker run forceedge01/docker-test:latest npm run test -- --coverage
